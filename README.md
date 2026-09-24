@@ -18,17 +18,17 @@ Los clientes fueron clasificados en cuatro segmentos según su nivel de compra a
 El análisis fue desarrollado en Excel, utilizando Power Query para la preparación de los datos, Power Pivot para el modelado y la creación de medidas, y tablas y gráficos dinámicos para construir el dashboard.
 
 El periodo analizado comprende desde 2015 hasta el segundo trimestre de 2017. Los importes se presentan en dólares estadounidenses como convención para el análisis.
-___________
+
 
 ## 2. 📊 Dashboard 
 ![Dashboard de Adventure Works](pictures/Dashboard.png)
 *Nota.El presente dashboard permite analizar los resultados generales y filtrar la información por país.*
-_____________
+
 ## 3. Fuente de Datos:
 Los datos originales los pueden encontrar [Aquí](https://www.kaggle.com/datasets/sprasad018/adventureworks-dataset?utm_source=chatgpt.com&select=AdventureWorks_Products.csv)
 
 El conjunto de datos contiene cinco tablas dimensionales con archivos CSV relacionados con clientes, productos, categorías y territorios. Además de una tabla de hechos con la información de las ventas.
-_____________
+
 ## 4. 🎯 Objetivos:
 Analizar el comportamiento comercial de los clientes de Adventure Works para determinar:
 
@@ -40,7 +40,7 @@ Qué segmentos presentan mayor utilidad y margen de utilidad. Con qué frecuenci
 Qué categoría de producto predomina en cada segmento.
 * **Analizar el desempeño por territorio:**
 Cómo varían estos resultado según el país seleccionado.
-_____________
+
 ## 5. 🛠️ Metodología 
 El proyecto se desarrolló en las siguientes etapas:
 
@@ -53,78 +53,44 @@ El proyecto se desarrolló en las siguientes etapas:
 
 [Ver el proceso técnico completo](proceso_metodologico.md)
 
+## 6. 💡Hallazgos Principales 
 
+* Los ingresos se concentran en el segmento **Diamante**:
+      Diamante representa el 30.84% de los clientes, pero genera el 82.61% de los ingresos. También registra el mayor ingreso promedio por cliente, con $3,832.07, y la mayor frecuencia de compra, con 1.86 órdenes por cliente.
+      Esto convierte a Diamante en el segmento con mayor valor económico para la empresa.
 
-Para este proyecto se aplicó un flujo de trabajo optimizado, priorizando el rendimiento del modelo y la integridad de los cálculos.
+*  **Bronce** tiene la mayor cantidad de clientes, pero una contribución reducida:
+Bronce concentra el 34.86% de los clientes,la mayor participación entre los segmentos, pero aporta solamente el 1.30% de los ingresos.
+Cada cliente Bronce genera aproximadamente $53.27 y realiza, en promedio, 1.06 órdenes, la frecuencia más baja del análisis.
 
-1. Importación y preparación de los datos
+*  **Plata** muestra una alta frecuencia de compra para su nivel de ingresos:
+Los clientes Plata realizan, en promedio, 1.64 órdenes, superando a Oro. Sin embargo, el segmento representa solamente el 1.59% de los ingresos, debido a que su ingreso promedio por cliente es de $157.13.
+Este comportamiento muestra que la frecuencia de compra no garantiza un alto valor económico cuando los montos de las compras son reducidos.
 
-**Carga y Optimización (ETL):** Los archivos CSV fueron integrados a través de **Power Query**, aplicando una estrategia de **Carga de conexión**  para optimizar el rendimiento de Excel y mantener un archivo ligero y ágil.
-Durante esta etapa se revisaron los tipos de datos, la estructura de las tablas y los campos necesarios para relacionar la información de ventas, clientes, productos y territorios.
+*  El segmento con mayor margen no es el que genera más utilidad:
+Bronce presenta el mayor margen de utilidad, con 59.37%, pero genera una utilidad total de $191,994.39 debido a su bajo nivel de ingresos.
+Diamante tiene un margen menor, de 41.78%, pero genera la mayor utilidad total, con $8,598,913.45.
+Por lo tanto, el margen mide la rentabilidad proporcional, mientras que la utilidad total muestra cuánto dinero aporta realmente cada segmento.
 
+*  La **categoría de producto** explica parte de las diferencias entre segmentos
+La composición de ingresos cambia considerablemente según el segmento:
+   * En Bronce, el 77.0% de los ingresos proviene de accesorios y el 23.0% de ropa.
+   * En Plata, el 68.8% corresponde a accesorios y el 31.2% a ropa.
+   * En Oro, el 93.9% de los ingresos proviene de bicicletas.
+   * En Diamante, las bicicletas representan el 98.4% de sus ingresos.
+Los segmentos de mayor valor están relacionados principalmente con la compra de bicicletas, mientras que Bronce y Plata concentran sus compras en accesorios y ropa.
 
-2. Construcción del modelo de datos
+* 6. Los ingresos crecieron sin deteriorar la rentabilidad
+Los ingresos trimestrales presentan una **tendencia creciente** durante el periodo analizado.
+El margen de utilidad pasó de aproximadamente 40.2% al inicio de 2015 a valores superiores al 42% durante 2016 y el primer semestre de 2017.
+El mayor margen trimestral fue de aproximadamente 42.8%, registrado durante el tercer trimestre de 2016.
 
-Las tablas fueron cargadas al modelo de datos de Excel y relacionadas mediante identificadores comunes.
-
-Este modelo permitió analizar la información sin cargar todas las tablas como hojas independientes dentro del libro.
-
-3. Segmentación de clientes
-
-Los clientes fueron clasificados en Bronce, Plata, Oro y Diamante según su nivel de compra acumulada.
-
-Esta segmentación corresponde a una clasificación descriptiva basada en reglas de negocio. No representa una segmentación estadística ni un modelo RFM.
-
-4. Creación de medidas
-
-Se crearon medidas para calcular los principales indicadores del análisis:
-
-Métrica	Cálculo
-Ingresos totales	Suma de los ingresos generados
-Clientes	Conteo distinto de clientes
-Cantidad de órdenes	Conteo distinto de órdenes
-Ingreso por cliente	Ingresos totales / clientes únicos
-Frecuencia de compra	Cantidad de órdenes / clientes únicos
-Utilidad total	Ingresos – costos
-Margen de utilidad	Utilidad total / ingresos totales
-Participación de clientes	Clientes del segmento / clientes totales
-Participación de ingresos	Ingresos del segmento / ingresos totales
-5. Análisis temporal
-
-La evolución de los ingresos y del margen de utilidad fue analizada trimestralmente.
-
-Se eligió una comparación trimestral porque la información de 2017 solo está disponible hasta el segundo trimestre. Por este motivo, no se realizó una comparación entre años completos.
-
-6. Construcción del dashboard
-
-Finalmente, se utilizaron tablas dinámicas, gráficos combinados, formato condicional y un segmentador por país para presentar los resultados de manera visual e interactiva.
-
-* **ETL y Limpieza de datos (Power Query):** Importación de datos mediante "Carga de conexión" para optimizar el uso de memoria.
-    * Transformación de tipos de datos, creación de columnas de tiempo (Mes y año) a partir de la fecha original y consolidación de identidades (concatenación de nombres).
-    * Eliminación de columnas irrelevantes para reducir el peso del modelo y mejorar el performance.
-      
-* **Modelado de datos (Star Schema):** Implementación de un **Modelo Estrella** en Power Pivot, estableciendo relaciones sólidas entre la *Fact Table* (`Sales`) y las *Dimension Tables* (`Customers`, `Products`, `Territories`, `Categories`,`Subcategories`). 
-    * Configuración de integridad referencial para garantizar que todas las visualizaciones respondan de forma sincronizada.
-      
-* **Medidas DAX:** Desarrollo de medidas para **KPIs** base: Ingresos Totales, Margen, % Utilidad y Ticket Promedio.
-    * **Lógica de Negocio:** Implementación de segmentación dinámica para categorizar a los 17,416 clientes según su volumen de consumo (Bronce, Plata, Oro y Diamante).
-      
-* **Diseño visual:** Diseño de interfaz profesional con una paleta de colores armonizada para facilitar la lectura de métricas críticas.
-    * Uso de segmentadores dinámicos para un análisis interactivo por tiempo y región.
+## 7. Conclusiones 
+## 8. Recomendaciones
  
-![Data Model Architecture](imagen/Star_schema.png)
-*Figura 1: Arquitectura de Modelo Estrella implementada en Power Pivot.*
+
 ____________
 
-## 4. 💡Insights
-* **Contraste de Valor por Segmento:** Mientras que el segmento Bronce representa el mayor volumen de clientes (34.86%), el segmento Diamante sostiene la rentabilidad con un ticket promedio de **$2,058**.
-* **Paradoja Regional:** Se identificó que Australia es un mercado de alto volumen pero baja eficiencia, mientras que **Canadá** es un mercado de bajo volumen pero máxima rentabilidad operativa.Esto indica que el costo de vender en Canadá es proporcionalmente más alto que en el resto del mundo.
-* **Impacto de Diversificación:** La expansión de categorías en 2016 aumentó los ingresos en **$2.9M** y cambió la dinámica de adquisición hacia productos de menor ticket pero mayor frecuencia.
-______________
-## 5. Recomendaciones
-* **Estrategia de Upselling:** Implementar campañas dirigidas al segmento Bronce (compradores de accesorios) para incentivarlos a adquirir productos de mayor valor, buscando elevar su *Customer Lifetime Value* (LTV).
-* **Optimización de Márgenes:** Realizar un **análisis profundo de costos operativos** en la región de Australia para identificar fugas de rentabilidad o costos ocultos,además buscar replicar las políticas de eficiencia aplicadas en Canadá.
-* **Fidelización del Segmento Diamante:** Crear programas de beneficios exclusivos para el segmento Diamante, dado que representan el motor financiero real del negocio a pesar de no ser el grupo más numeroso.
 
  👤 Autor
  
