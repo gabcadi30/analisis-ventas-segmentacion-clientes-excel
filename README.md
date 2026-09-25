@@ -22,7 +22,7 @@ El periodo analizado comprende desde 2015 hasta el segundo trimestre de 2017. Lo
 
 ## 2. 📊 Dashboard 
 ![Dashboard de Adventure Works](pictures/Dashboard.png)
-*Nota.El presente dashboard permite analizar los resultados generales y filtrar la información por país.*
+*Nota.El presente dashboard muestra la evolución trimestral de los ingresos y el margen de utilidad, así como el valor, la frecuencia de compra y la rentabilidad de los segmentos Bronce, Plata, Oro y Diamante.*
 
 ## 3. Fuente de Datos:
 Los datos originales los pueden encontrar [Aquí](https://www.kaggle.com/datasets/sprasad018/adventureworks-dataset?utm_source=chatgpt.com&select=AdventureWorks_Products.csv)
@@ -30,8 +30,6 @@ Los datos originales los pueden encontrar [Aquí](https://www.kaggle.com/dataset
 El conjunto de datos contiene cinco tablas dimensionales con archivos CSV relacionados con clientes, productos, categorías y territorios. Además de una tabla de hechos con la información de las ventas.
 
 ## 4. 🎯 Objetivos:
-Analizar el comportamiento comercial de los clientes de Adventure Works para determinar:
-
 * **Analizar el desempeño de ventas en el tiempo:** 
 Cómo evolucionaron los ingresos y la rentabilidad durante el periodo analizado.
 * **Conocer a sus principales clientes y su comportamiento:**
@@ -55,19 +53,19 @@ El proyecto se desarrolló en las siguientes etapas:
 
 ## 6. 💡Hallazgos Principales 
 
-* Los ingresos se concentran en el segmento **Diamante**:
+* **Los ingresos se concentran en el segmento Diamante**.
       Diamante representa el 30.84% de los clientes, pero genera el 82.61% de los ingresos. También registra el mayor ingreso promedio por cliente, con $3,832.07, y la mayor frecuencia de compra, con 1.86 órdenes por cliente.
       Esto convierte a Diamante en el segmento con mayor valor económico para la empresa.
 
-*  **Bronce** tiene la mayor cantidad de clientes, pero una contribución reducida:
+*  **Bronce tiene la mayor cantidad de clientes, pero una contribución reducida**.
 Bronce concentra el 34.86% de los clientes,la mayor participación entre los segmentos, pero aporta solamente el 1.30% de los ingresos.
 Cada cliente Bronce genera aproximadamente $53.27 y realiza, en promedio, 1.06 órdenes, la frecuencia más baja del análisis.
 
-*  **Plata** muestra una alta frecuencia de compra para su nivel de ingresos:
+*  **Plata muestra una alta frecuencia de compra para su nivel de ingresos.**
 Los clientes Plata realizan, en promedio, 1.64 órdenes, superando a Oro. Sin embargo, el segmento representa solamente el 1.59% de los ingresos, debido a que su ingreso promedio por cliente es de $157.13.
 Este comportamiento muestra que la frecuencia de compra no garantiza un alto valor económico cuando los montos de las compras son reducidos.
 
-*  El segmento con mayor margen no es el que genera más utilidad:
+*  **El segmento con mayor margen no es el que genera más utilidad**
 Bronce presenta el mayor margen de utilidad, con 59.37%, pero genera una utilidad total de $191,994.39 debido a su bajo nivel de ingresos.
 Diamante tiene un margen menor, de 41.78%, pero genera la mayor utilidad total, con $8,598,913.45.
 Por lo tanto, el margen mide la rentabilidad proporcional, mientras que la utilidad total muestra cuánto dinero aporta realmente cada segmento.
