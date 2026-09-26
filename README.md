@@ -48,7 +48,7 @@ El proyecto se desarrolló en las siguientes etapas:
 5. Creación de medidas en Power Pivot.
 6. Construcción de tablas dinámicas y del dashboard.
 
-[Ver el proceso técnico completo](proceso_metodologico.md)
+[Ver el proceso técnico completo]((https://github.com/gabcadi30/analisis-ventas-segmentacion-clientes-excel/blob/main/proceso_tecnico.md)
 
 ___
 
