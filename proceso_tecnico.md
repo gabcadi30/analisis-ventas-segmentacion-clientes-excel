@@ -1,12 +1,12 @@
 # Proceso Técnico
-Informe: [Análisis de Venta y Segmentación de Clientes](https://github.com/gabcadi30/analisis-ventas-segmentacion-clientes-excel))
-_____
+
+Informe: [Análisis de Venta y Segmentación de Clientes](https://github.com/gabcadi30/analisis-ventas-segmentacion-clientes-excel)
 
 El proyecto fue desarrollado en Excel utilizando Power Query, Power Pivot, medidas DAX, tablas dinámicas y gráficos dinámicos.
 
 ## 1. Importación y preparación de datos
 
-Los archivos CSV fueron importados mediante **Power Query** y cargados como conexiones al modelo de datos.
+Los archivos CSV fueron importados mediante Power Query y cargados como conexiones al modelo de datos.
 
 Se eligió la opción **“Solo crear conexión”** para evitar cargar las tablas completas en las hojas de Excel, reducir el peso visual del documento y mejorar su agilidad.
 
@@ -22,22 +22,19 @@ Trimestre = "Tri" & ROUNDUP(MONTH([OrderDate]) / 3; 0)
 
 Estas columnas permitieron analizar la evolución de los ingresos y del margen de utilidad por periodos trimestrales.
 
-![Importación y preparación de datos](imagenes/01_preparacion_datos.png)
-
 ## 2. Segmentación de clientes
 
-En la tabla `Customers` se creó la columna calculada `Segmentacion_cliente`, utilizando el ingreso acumulado de cada cliente:
+En la tabla `AdventureWorks_Customers` se creó la columna calculada `Segmentacion_cliente`, utilizando el ingreso acumulado de cada cliente:
 
 ```DAX
 Segmentacion_cliente =
-SWITCH(
-    TRUE();
+ SWITCH( TRUE();
     [Ingresos Total] <= 100; "Bronce";
     [Ingresos Total] <= 500; "Plata";
     [Ingresos Total] <= 2000; "Oro";
-    "Diamante"
-)
+    "Diamante" )
 ```
+![Segmentación de clientes](pictures/columna_segmetada_customer.png)
 
 Los clientes fueron clasificados de la siguiente manera:
 
@@ -50,7 +47,6 @@ Los clientes fueron clasificados de la siguiente manera:
 
 Esta clasificación permitió comparar el valor, la frecuencia de compra y la rentabilidad de los diferentes grupos de clientes.
 
-![Segmentación de clientes](imagenes/02_segmentacion_clientes.png)
 
 ## 3. Modelo de datos
 
@@ -66,7 +62,7 @@ Se construyó una estructura de tipo estrella con `Sales 2` como tabla de hechos
 
 El modelo permitió analizar las ventas por cliente, producto, categoría, territorio y periodo sin cargar todas las tablas en hojas independientes.
 
-![Modelo de datos en Power Pivot](imagenes/03_modelo_estrella.png)
+![Modelo de datos en Power Pivot](pictures/Diagrama.png)
 
 ## 4. Medidas DAX
 
@@ -88,9 +84,9 @@ Entre las principales medidas utilizadas se encuentran:
 
 Estas medidas se recalculan automáticamente según el segmento o país seleccionado.
 
-![Medidas creadas en Power Pivot](imagenes/04_medidas_dax.png)
+![Medidas creadas en Power Pivot](pictures/medidas_dax.png)
 
-## 5. Tablas dinámicas y dashboard
+## 5. Tablas dinámicas 
 
 Se crearon tablas dinámicas para analizar:
 
@@ -101,19 +97,18 @@ Se crearon tablas dinámicas para analizar:
 * Utilidad y margen por segmento.
 * Composición de ingresos por categoría de producto.
 
+![Tablas dinámicas utilizadas](pictures/tablas_dinamicas.png)
+
 A partir de estas tablas se construyeron los gráficos y el dashboard final.
 
-El dashboard combina gráficos dinámicos, tablas, formato condicional y un segmentador por país que permite filtrar los resultados de Australia, Canadá, Francia, Alemania, Reino Unido y Estados Unidos.
+## 6. Dashboard 
+El presente dashboard combina gráficos dinámicos, tablas, formato condicional y un segmentador por país que permite filtrar los resultados de Australia, Canadá, Francia, Alemania, Reino Unido y Estados Unidos.
 
-![Tablas dinámicas utilizadas](imagenes/05_tablas_dinamicas.png)
+![Dashboard final](pictures/Dashboard.png)
 
-![Dashboard final](imagenes/06_dashboard_final.png)
 
-## 6. Consideración sobre el periodo analizado
 
-La información de 2017 solo está disponible hasta junio. Por esta razón, no se comparó 2017 como un año completo frente a 2015 y 2016.
-
-La evolución se presentó por trimestre, mostrando cuatro trimestres para 2015 y 2016, y únicamente los dos primeros trimestres de 2017. Esto permite utilizar la información disponible sin generar una comparación anual engañosa.
+* La información de 2017 solo está disponible hasta junio. Por esta razón, no se comparó 2017 como un año completo frente a 2015 y 2016. La evolución se presentó por trimestre, mostrando cuatro trimestres para 2015 y 2016, y únicamente los dos primeros trimestres de 2017. Esto permite utilizar la información disponible sin generar una comparación anual engañosa.
 
 ---
 
